@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+          ">
+
+	<global-method-security secured-annotations="enabled" jsr250-annotations="enabled" pre-post-annotations="enabled" />
+	<beans:bean id="successHandler" class="com.projet.type.security.SuccessHandler"/>
+	<http auto-config="true" use-expressions="true" access-denied-page="/denied.do">
+		<intercept-url pattern="/pages/*" access="isAuthenticated()" />
+<!-- 		<intercept-url pattern="/administration/*" access="hasAnyRole('administrateur','moderateur','trader')" /> -->
+		
+		<form-login login-page="/login.do" authentication-failure-url="/loginFailed.do" authentication-success-handler-ref="successHandler"/>
+        <logout invalidate-session="true" logout-success-url="/login.do" logout-url="/j_spring_security_logout" delete-cookies="JSESSIONID"/> 
+
+<!-- 		<session-management>  -->
+<!--             <concurrency-control max-sessions="1" expired-url="/viewExpired.do"/> -->
+<!--         </session-management> -->
+<!-- 		<remember-me/> -->
+	</http>
+	
+
+	<authentication-manager >
+		<authentication-provider user-service-ref="customUserDetailsService">
+			<password-encoder ref="bCryptPasswordEncoder" />
+		</authentication-provider>
+	</authentication-manager>
+	
+	<beans:bean id='bCryptPasswordEncoder' class='org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder' />
+</beans:beans>

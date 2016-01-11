@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd" 
+    version="2.0">
+    <application>
+        <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+        <el-resolver>org.primefaces.application.exceptionhandler.PrimeExceptionHandlerELResolver</el-resolver>
+        <resource-bundle>
+            <base-name>com.projet.type.view.i18n.messages</base-name>
+            <var>messages</var>
+        </resource-bundle>
+        <locale-config>
+            <default-locale>fr</default-locale>
+            <supported-locale>en</supported-locale>
+            <supported-locale>de</supported-locale>
+            <supported-locale>es</supported-locale>
+        </locale-config>
+    </application>
+    <factory>
+        <exception-handler-factory>com.projet.type.view.util.ViewExpiredExceptionExceptionHandlerFactory</exception-handler-factory>
+        <exception-handler-factory>org.primefaces.application.exceptionhandler.PrimeExceptionHandlerFactory</exception-handler-factory>
+    </factory>
+<!--     <render-kit> -->
+<!-- 	    <renderer> -->
+<!-- 	        <component-family>org.primefaces.component</component-family> -->
+<!-- 	        <renderer-type>org.primefaces.component.SelectManyCheckboxRenderer</renderer-type> -->
+<!-- 	        <renderer-class>com.orbit.orion.view.component.OrionSelectManyCheckboxRenderer</renderer-class> -->
+<!-- 	    </renderer> -->
+<!-- 	</render-kit> -->
+</faces-config>
