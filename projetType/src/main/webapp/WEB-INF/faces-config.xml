@@ -25,7 +25,7 @@
 <!-- 	    <renderer> -->
 <!-- 	        <component-family>org.primefaces.component</component-family> -->
 <!-- 	        <renderer-type>org.primefaces.component.SelectManyCheckboxRenderer</renderer-type> -->
-<!-- 	        <renderer-class>com.orbit.orion.view.component.OrionSelectManyCheckboxRenderer</renderer-class> -->
+<!-- 	        <renderer-class>com.societe.projet.view.component.OrionSelectManyCheckboxRenderer</renderer-class> -->
 <!-- 	    </renderer> -->
 <!-- 	</render-kit> -->
 </faces-config>

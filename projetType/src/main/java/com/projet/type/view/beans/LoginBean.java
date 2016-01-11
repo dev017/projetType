@@ -37,7 +37,7 @@ public class LoginBean implements Serializable{
 	private static final long serialVersionUID = -6749712399939669235L;
 	private String userId;
     private String password;
-//    @Value("${orbit-appName}")
+//    @Value("${application-appName}")
 //    private String applicationName;
 
 //	@Autowired
@@ -112,7 +112,7 @@ public class LoginBean implements Serializable{
     				 sujet=info.getType();
     				 body+=info.getFormattedStackTrace();
     			 }
-//    			 sendMailService.sendMail("i.saoudy@orbit-interactive.com", sujet,body );
+//    			 sendMailService.sendMail("dev017@gmail.com", sujet,body );
     		 }
 		}
     }

@@ -47,12 +47,7 @@ public class Utilisateur extends User {
 	
 	// Propriétés -- FIN	
 	
-	/**
-	 * type de compte de l'utilisateur pour différencier entre les offres vivaki ("actionPerf" et "AOD"), extrait de la spéc fonctionnelle <b>analyse preliminaire vivaki_module_administration_v2.docx</b>: 
-	 * <p>La première partie est une offre packagée " Action Perf " qui correspond à la plateforme climat media et qui reprend les fonctionnalités disponibles sur Climat media. Cette dernière sera basée sur le siège existant d'Orbit.
-	 * La deuxième partie correspond à une offre non packagé "Vivaki by Orbit interactive" qui est liée à un siège différent qui sera réservé à l'AOD.</p>
-
-	 */
+	
 	String typeCompte;	
 
 	public String getNom() {
