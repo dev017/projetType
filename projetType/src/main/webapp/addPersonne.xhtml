@@ -35,12 +35,12 @@
 				<p:commandLink id="addPersonne" value="Ajouter"
 					action="#{gestPersBean.addPersonne}" />
 
-				<p:selectOneMenu id="country" value="#{dropdownView.country}"
-					style="width:150px">
-					<p:ajax listener="#{dropdownView.onCountryChange}" update="city" />
-					<f:selectItem itemLabel="Select Country" itemValue="" noSelectionOption="true" />
-					<f:selectItems value="#{dropdownView.countries}" />
-				</p:selectOneMenu>
+<!-- 				<p:selectOneMenu id="country" value="#{dropdownView.country}" -->
+<!-- 					style="width:150px"> -->
+<!-- 					<p:ajax listener="#{dropdownView.onCountryChange}" update="city" /> -->
+<!-- 					<f:selectItem itemLabel="Select Country" itemValue="" noSelectionOption="true" /> -->
+<!-- 					<f:selectItems value="#{dropdownView.countries}" /> -->
+<!-- 				</p:selectOneMenu> -->
 
 
 			</p:panelGrid>
