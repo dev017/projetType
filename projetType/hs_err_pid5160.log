@@ -1,0 +1,150 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  Internal Error (virtualspace.cpp:114), pid=5160, tid=2052
+#  fatal error: os::release_memory failed
+#
+# JRE version:  (7.0_45-b18) (build )
+# Java VM: Java HotSpot(TM) Client VM (24.45-b08 mixed mode windows-x86 )
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.sun.com/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x01dff000):  JavaThread "Unknown thread" [_thread_in_vm, id=2052, stack(0x018a0000,0x018f0000)]
+
+Stack: [0x018a0000,0x018f0000],  sp=0x018ef728,  free space=317k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x18df51]
+V  [jvm.dll+0x187cc6]
+V  [jvm.dll+0x1640bc]
+V  [jvm.dll+0x16459b]
+V  [jvm.dll+0x89a16]
+V  [jvm.dll+0x874e6]
+V  [jvm.dll+0x861f2]
+V  [jvm.dll+0x905c3]
+V  [jvm.dll+0x13dab4]
+V  [jvm.dll+0x1605fc]
+V  [jvm.dll+0xc8ebf]
+C  [java.exe+0x13c1]
+C  [java.exe+0x1e33]
+C  [java.exe+0xa591]
+C  [java.exe+0xa61b]
+C  [kernel32.dll+0x53c45]
+C  [ntdll.dll+0x637f5]
+C  [ntdll.dll+0x637c8]
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x01dff000 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=2052, stack(0x018a0000,0x018f0000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00940000 - 0x0096f000 	C:\Program Files\Java\jre7\bin\java.exe
+0x778c0000 - 0x779fc000 	C:\Windows\SYSTEM32\ntdll.dll
+0x76a80000 - 0x76b54000 	C:\Windows\system32\kernel32.dll
+0x75ae0000 - 0x75b2a000 	C:\Windows\system32\KERNELBASE.dll
+0x76ee0000 - 0x76f80000 	C:\Windows\system32\ADVAPI32.dll
+0x76e30000 - 0x76edc000 	C:\Windows\system32\msvcrt.dll
+0x772f0000 - 0x77309000 	C:\Windows\SYSTEM32\sechost.dll
+0x774d0000 - 0x77571000 	C:\Windows\system32\RPCRT4.dll
+0x77370000 - 0x77439000 	C:\Windows\system32\USER32.dll
+0x76a30000 - 0x76a7e000 	C:\Windows\system32\GDI32.dll
+0x76b90000 - 0x76b9a000 	C:\Windows\system32\LPK.dll
+0x77820000 - 0x778bd000 	C:\Windows\system32\USP10.dll
+0x74990000 - 0x74b2e000 	C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.17514_none_41e6975e2bd6f2b2\COMCTL32.dll
+0x77310000 - 0x77367000 	C:\Windows\system32\SHLWAPI.dll
+0x75940000 - 0x7598c000 	C:\Windows\system32\apphelp.dll
+0x5ca30000 - 0x5cabd000 	C:\Windows\AppPatch\AcLayers.DLL
+0x75910000 - 0x7592b000 	C:\Windows\system32\SspiCli.dll
+0x75dd0000 - 0x76a1a000 	C:\Windows\system32\SHELL32.dll
+0x77580000 - 0x776dc000 	C:\Windows\system32\ole32.dll
+0x76da0000 - 0x76e2f000 	C:\Windows\system32\OLEAUT32.dll
+0x75070000 - 0x75087000 	C:\Windows\system32\USERENV.dll
+0x75a10000 - 0x75a1b000 	C:\Windows\system32\profapi.dll
+0x6ed30000 - 0x6ed81000 	C:\Windows\system32\WINSPOOL.DRV
+0x73250000 - 0x73262000 	C:\Windows\system32\MPR.dll
+0x6fb50000 - 0x6fd68000 	C:\Windows\AppPatch\AcGenral.DLL
+0x74640000 - 0x74680000 	C:\Windows\system32\UxTheme.dll
+0x740b0000 - 0x740e2000 	C:\Windows\system32\WINMM.dll
+0x73c80000 - 0x73c8f000 	C:\Windows\system32\samcli.dll
+0x73e70000 - 0x73e84000 	C:\Windows\system32\MSACM32.dll
+0x74f00000 - 0x74f09000 	C:\Windows\system32\VERSION.dll
+0x6fb40000 - 0x6fb43000 	C:\Windows\system32\sfc.dll
+0x6fb30000 - 0x6fb3d000 	C:\Windows\system32\sfc_os.DLL
+0x74690000 - 0x746a3000 	C:\Windows\system32\dwmapi.dll
+0x76f80000 - 0x7711d000 	C:\Windows\system32\SETUPAPI.dll
+0x75ce0000 - 0x75d07000 	C:\Windows\system32\CFGMGR32.dll
+0x75a90000 - 0x75aa2000 	C:\Windows\system32\DEVOBJ.dll
+0x776e0000 - 0x77816000 	C:\Windows\system32\urlmon.dll
+0x771f0000 - 0x772e5000 	C:\Windows\system32\WININET.dll
+0x76ba0000 - 0x76d9b000 	C:\Windows\system32\iertutil.dll
+0x75bc0000 - 0x75cdd000 	C:\Windows\system32\CRYPT32.dll
+0x75a80000 - 0x75a8c000 	C:\Windows\system32\MSASN1.dll
+0x5c280000 - 0x5c4d9000 	C:\Windows\AppPatch\AcXtrnal.DLL
+0x6def0000 - 0x6def6000 	C:\Windows\system32\SHUNIMPL.DLL
+0x6c650000 - 0x6c661000 	C:\Windows\system32\SortWindows6Compat.dll
+0x75d50000 - 0x75d6f000 	C:\Windows\system32\IMM32.DLL
+0x77120000 - 0x771ec000 	C:\Windows\system32\MSCTF.dll
+0x5c970000 - 0x5ca2f000 	C:\Program Files\Java\jre7\bin\msvcr100.dll
+0x5ab20000 - 0x5aea0000 	C:\Program Files\Java\jre7\bin\client\jvm.dll
+0x6c540000 - 0x6c547000 	C:\Windows\system32\WSOCK32.dll
+0x75d10000 - 0x75d45000 	C:\Windows\system32\WS2_32.dll
+0x77a10000 - 0x77a16000 	C:\Windows\system32\NSI.dll
+0x77a00000 - 0x77a05000 	C:\Windows\system32\PSAPI.DLL
+0x6c790000 - 0x6c79c000 	C:\Program Files\Java\jre7\bin\verify.dll
+0x6c440000 - 0x6c460000 	C:\Program Files\Java\jre7\bin\java.dll
+0x6a910000 - 0x6a923000 	C:\Program Files\Java\jre7\bin\zip.dll
+0x6e160000 - 0x6e24b000 	C:\Windows\system32\dbghelp.dll
+
+VM Arguments:
+java_command: C:\Users\Ihab\git\projetType\projetType\target\surefire\surefirebooter2952829872283259579.jar C:\Users\Ihab\git\projetType\projetType\target\surefire\surefire75960796166412145tmp C:\Users\Ihab\git\projetType\projetType\target\surefire\surefire_07584222283953350446tmp
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk1.7.0_03
+CLASSPATH=C:\Program Files\Java\jdk1.7.0_03\lib\tools.jar
+PATH=C:/Program Files/Java/jre7/bin/client;C:/Program Files/Java/jre7/bin;C:/Program Files/Java/jre7/lib/i386;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.7.0_03\bin;C:\Program Files\Java\jre7\bin;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;D:\apache-maven-3.2.2\bin;C:\Program Files\sonar\sonar-runner-2.4-analyse\bin;D:\apache-maven-3.2.2\bin;D:\eclipse;
+USERNAME=Ihab
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=x86 Family 6 Model 37 Stepping 5, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 7 Build 7600 
+
+CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 37 stepping 5, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, aes, ht, tsc, tscinvbit
+
+Memory: 4k page, physical 3397480k(259616k free), swap 3782564k(7240k free)
+
+vm_info: Java HotSpot(TM) Client VM (24.45-b08) for windows-x86 JRE (1.7.0_45-b18), built on Oct  8 2013 06:02:43 by "java_re" with unknown MS VC++:1600
+
+time: Sun Jan 17 16:52:07 2016
+elapsed time: 0 seconds
+

@@ -13,7 +13,7 @@
 	</context-param>
 	<context-param>
 		<param-name>projet-appName</param-name>
-		<param-value>test</param-value>
+		<param-value>Projet Test</param-value>
 	</context-param>
 	<context-param>
 		<param-name>defaultHtmlEscape</param-name>

@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
@@ -28,6 +30,10 @@ public class Personne implements Serializable {
 	@Column(length = 50)
 	private String prenom;
 
+	 @OneToOne
+	 @PrimaryKeyJoinColumn
+	 private OtherInfoPersonne otherInfo;
+	 
 	public Integer getId() {
 		return id;
 	}

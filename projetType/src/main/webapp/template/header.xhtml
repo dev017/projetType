@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:sec="http://www.springframework.org/security/tags">	
+<ui:composition>
+	<!--Header -->
+    <div id="header">
+	    <div id="headerBloc"  class="navbar navbar-inverse" role="navigation">
+	      <div class="container">
+	        <div class="navbar-header">
+	          <!-- Menu Responsive -->
+	          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	            <span class="sr-only">Toggle navigation</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <a id="logo" class="navbar-brand logo" href="${request.contextPath}">
+	          	<h:graphicImage library="#{initParam['projet-appName']}" name="img/logo.png"  styleClass="img-responsive"/>
+	          </a>
+	        </div>
+	          <!-- Fin Menu Responsive -->
+	          	<sec:authorize access="isAuthenticated()">
+	          <div class="navbar-collapse collapse">
+		         <ul class="nav navbar-nav navbar-right topMenu">
+		            <li><a class="transition" href="#">Bonjour <span class="pinkColor"><h:outputText value="#{sessionScope['user'].firstName} "/><h:outputText value="#{sessionScope['user'].name}"/></span></a></li>
+		            <li class="dropdown">
+		              <a href="#" class="dropdown-toggle transition" data-toggle="dropdown">Mon Compte <span class="caret pinkColor"></span></a>
+		                <ul class="dropdown-menu" role="menu">
+		                  <li><a class="transition" href="#">Modifier mot de passe</a></li>
+<!-- 		                  ${request.contextPath}/profil/changePass.do -->
+		                </ul>
+		            </li>
+		            <li><a  id="logout" class="transition" href="${request.contextPath}/j_spring_security_logout"><i class="icon icon-logOut"></i>Se déconnecter</a> </li>
+		        </ul>
+		         
+		        </div><!--/.navbar-collapse -->
+		        
+		        </sec:authorize>
+
+	      </div>
+	    </div>
+    </div>
+    		                                 <!--Background Top-->
+         <div id="topBg">
+            <div class="container-fluid noPadding">
+               <div class="bgTop"></div>
+            </div>
+         </div>
+         <!--Fin Background Top-->
+	<!--Fin Header-->
+
+</ui:composition>
+</html>
