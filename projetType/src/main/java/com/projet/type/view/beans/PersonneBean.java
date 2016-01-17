@@ -37,9 +37,13 @@ public class PersonneBean implements Serializable {
 
 	private List<Personne> listPers = new ArrayList<Personne>();
 
+	private List<Personne> selectedPersonnes = new ArrayList<Personne>();
+
 	private String nom;
 
 	private String prenom;
+
+	private Personne selectedOnePersonne;
 
 	@Autowired
 	IPersonneService persService;
@@ -68,6 +72,7 @@ public class PersonneBean implements Serializable {
 
 	public void addPersonne() {
 		persService.save(pers);
+		listPers = persService.findAll();
 		redirect("personne.do");
 	}
 
@@ -99,12 +104,28 @@ public class PersonneBean implements Serializable {
 		this.nom = nom;
 	}
 
+	public List<Personne> getSelectedPersonnes() {
+		return selectedPersonnes;
+	}
+
+	public void setSelectedPersonnes(List<Personne> selectedPersonnes) {
+		this.selectedPersonnes = selectedPersonnes;
+	}
+
 	public String getPrenom() {
 		return prenom;
 	}
 
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
+	}
+
+	public Personne getSelectedOnePersonne() {
+		return selectedOnePersonne;
+	}
+
+	public void setSelectedOnePersonne(Personne selectedOnePersonne) {
+		this.selectedOnePersonne = selectedOnePersonne;
 	}
 
 }

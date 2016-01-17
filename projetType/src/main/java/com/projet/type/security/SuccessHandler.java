@@ -31,7 +31,7 @@ public class SuccessHandler implements AuthenticationSuccessHandler {
         
         FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user", u);
         
-		response.sendRedirect("home.do");
+		response.sendRedirect("personne.do");
 	}
 
 }
