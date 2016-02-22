@@ -32,8 +32,16 @@
 				<h:outputText value="Prénom :" />
 				<p:inputText value="#{gestPersBean.pers.prenom}" />
 
+				<h:outputText value="CIN :" />
+				<p:inputText value="#{gestPersBean.otherInfoPers.cin}" />
+
+				<h:outputText value="Adresse :" />
+				<p:inputText value="#{gestPersBean.otherInfoPers.adresse}" />
+
+
 				<h:outputText value="Niveau :" />
-				<p:selectOneMenu id="niveau" value="#{gestPersBean.pers.niveau}" converter="omnifaces.SelectItemsConverter">
+				<p:selectOneMenu id="niveau" value="#{gestPersBean.pers.niveau}"
+					converter="omnifaces.SelectItemsConverter">
 					<f:selectItem itemLabel="Choisir niveau" itemValue=""
 						noSelectionOption="true" />
 					<f:selectItems value="#{gestPersBean.listNiveau}" />

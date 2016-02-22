@@ -3,6 +3,7 @@ package com.projet.type.entity;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,7 +35,7 @@ public class Personne implements Serializable {
 	@Column(length = 50)
 	private String prenom;
 
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.ALL})
 	@PrimaryKeyJoinColumn
 	private OtherInfoPersonne otherInfo;
 
@@ -72,6 +73,14 @@ public class Personne implements Serializable {
 
 	public void setNiveau(Niveau niveau) {
 		this.niveau = niveau;
+	}
+
+	public OtherInfoPersonne getOtherInfo() {
+		return otherInfo;
+	}
+
+	public void setOtherInfo(OtherInfoPersonne otherInfo) {
+		this.otherInfo = otherInfo;
 	}
 
 }

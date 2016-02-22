@@ -18,6 +18,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.projet.type.entity.Niveau;
+import com.projet.type.entity.OtherInfoPersonne;
 import com.projet.type.entity.Personne;
 import com.projet.type.service.data.INiveauService;
 import com.projet.type.service.data.IPersonneService;
@@ -39,6 +40,8 @@ public class PersonneBean implements Serializable {
 
 	private Personne pers = new Personne();
 
+	private OtherInfoPersonne otherInfoPers = new OtherInfoPersonne();
+
 	private List<Personne> listPers = new ArrayList<Personne>();
 
 	private List<Personne> selectedPersonnes = new ArrayList<Personne>();
@@ -56,10 +59,11 @@ public class PersonneBean implements Serializable {
 
 	private Map<String, String> actions;
 
-	private List<Niveau> listNiveau= new ArrayList<Niveau>();;
+	private List<Niveau> listNiveau = new ArrayList<Niveau>();;
 
 	@Autowired
 	IPersonneService persService;
+
 
 	@Autowired
 	INiveauService niveauService;
@@ -100,7 +104,14 @@ public class PersonneBean implements Serializable {
 	}
 
 	public void addPersonne() {
+		
+
+		pers.setOtherInfo(otherInfoPers);
+		otherInfoPers.setPersonne(pers);
+		
 		persService.save(pers);
+
+		
 		listPers = persService.findAll();
 		redirect("personne.do");
 	}
@@ -204,6 +215,14 @@ public class PersonneBean implements Serializable {
 
 	public void setListNiveau(List<Niveau> listNiveau) {
 		this.listNiveau = listNiveau;
+	}
+
+	public OtherInfoPersonne getOtherInfoPers() {
+		return otherInfoPers;
+	}
+
+	public void setOtherInfoPers(OtherInfoPersonne otherInfoPers) {
+		this.otherInfoPers = otherInfoPers;
 	}
 
 }
