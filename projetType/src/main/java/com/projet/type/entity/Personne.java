@@ -1,12 +1,16 @@
 package com.projet.type.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -30,10 +34,14 @@ public class Personne implements Serializable {
 	@Column(length = 50)
 	private String prenom;
 
-	 @OneToOne
-	 @PrimaryKeyJoinColumn
-	 private OtherInfoPersonne otherInfo;
-	 
+	@OneToOne
+	@PrimaryKeyJoinColumn
+	private OtherInfoPersonne otherInfo;
+
+	@ManyToOne
+	@JoinColumn(name = "niveau_id", referencedColumnName = "id")
+	private Niveau niveau;
+
 	public Integer getId() {
 		return id;
 	}
@@ -56,6 +64,14 @@ public class Personne implements Serializable {
 
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
+	}
+
+	public Niveau getNiveau() {
+		return niveau;
+	}
+
+	public void setNiveau(Niveau niveau) {
+		this.niveau = niveau;
 	}
 
 }

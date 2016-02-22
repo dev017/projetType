@@ -260,6 +260,12 @@
 			<version>2.4.0.RELEASE</version>
 		</dependency>
 
+		<!-- Omnifaces -->
+		<dependency>
+			<groupId>org.omnifaces</groupId>
+			<artifactId>omnifaces</artifactId>
+			<version>1.10</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<pluginManagement>
