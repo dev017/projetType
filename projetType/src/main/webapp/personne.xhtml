@@ -29,7 +29,20 @@
 					noSelectionOption="true" />
 				<f:selectItems value="#{gestPersBean.actions}" />
 			</p:selectOneMenu>
-															
+	<br/><br/>		
+	
+		
+		<h:outputText value="Niveau :" />
+				<p:selectOneMenu id="niveau" value="#{gestPersBean.selectedNiveau.libelle}"
+					converter="omnifaces.SelectItemsConverter">
+					<p:ajax listener="#{gestPersBean.onFilterChange}" update="personne" />
+					<f:selectItem itemLabel="Tous les niveaux" itemValue=""
+						noSelectionOption="true" />
+					<f:selectItems value="#{gestPersBean.listNiveau}" />
+				</p:selectOneMenu>
+		
+				
+			<br/><br/>											
 Liste des personnes : 
   <p:dataTable id="personne" var="var" value="#{gestPersBean.listPers}"
 				rows="5" widgetVar="advTable" paginator="true"
@@ -66,11 +79,6 @@ Liste des personnes :
 					<h:outputText value="#{var.id}" />
 				</p:column>
 
-				<!-- 			<p:column headerText="Id" sortBy="#{var.id}" filterBy="#{var.id}" -->
-				<!-- 				filterStyle="display:none"> -->
-				<!-- 				<h:outputText value="#{var.id}" /> -->
-				<!-- 			</p:column> -->
-
 				<p:column headerText="Nom" sortBy="#{var.nom}" filterBy="#{var.id}"
 					filterStyle="display:none">
 					<h:outputText value="#{var.nom}" />
@@ -79,6 +87,11 @@ Liste des personnes :
 				<p:column headerText="Prénom" sortBy="#{var.prenom}"
 					filterBy="#{var.prenom}" filterStyle="display:none">
 					<h:outputText value="#{var.prenom}" />
+				</p:column>
+
+				<p:column headerText="Niveau" sortBy="#{var.niveau.libelle}"
+					filterBy="#{var.niveau.libelle}" filterStyle="display:none">
+					<h:outputText value="#{var.niveau.libelle}" />
 				</p:column>
 
 				<p:column style="width:32px;text-align: center">

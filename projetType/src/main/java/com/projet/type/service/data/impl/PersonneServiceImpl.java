@@ -29,4 +29,14 @@ public class PersonneServiceImpl implements IPersonneService {
 		dao.save(p);
 	}
 
+	@Override
+	public List<Personne> getListAllPersonne() {
+		return dao.getListAllPersonne();
+	}
+
+	@Override
+	public List<Personne> getListAllPersonneByNiveau(String libelle) {
+		return dao.getListPersonneByNiveau(libelle);
+	}
+
 }

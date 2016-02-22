@@ -13,4 +13,9 @@ public interface IPersonneService {
 	
 	public void save(Personne p);
 	
+	public List<Personne>getListAllPersonne();
+	
+	public List<Personne>getListAllPersonneByNiveau(String id);
+	
+	
 }

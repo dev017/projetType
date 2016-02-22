@@ -10,6 +10,7 @@ import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
+import org.apache.tomcat.util.codec.binary.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,9 +62,10 @@ public class PersonneBean implements Serializable {
 
 	private List<Niveau> listNiveau = new ArrayList<Niveau>();;
 
+	private Niveau selectedNiveau = new Niveau();
+
 	@Autowired
 	IPersonneService persService;
-
 
 	@Autowired
 	INiveauService niveauService;
@@ -72,7 +74,7 @@ public class PersonneBean implements Serializable {
 
 		if (null != listPers && listPers.isEmpty()) {
 			initActions();
-			listPers = persService.findAll();
+			listPers = persService.getListAllPersonne();
 		}
 
 		if (null != listNiveau && listNiveau.isEmpty()) {
@@ -104,14 +106,12 @@ public class PersonneBean implements Serializable {
 	}
 
 	public void addPersonne() {
-		
 
 		pers.setOtherInfo(otherInfoPers);
 		otherInfoPers.setPersonne(pers);
-		
+
 		persService.save(pers);
 
-		
 		listPers = persService.findAll();
 		redirect("personne.do");
 	}
@@ -131,6 +131,22 @@ public class PersonneBean implements Serializable {
 				break;
 			}
 		}
+	}
+
+	public final void onFilterChange() {
+		if (null == selectedNiveau.getLibelle() || "".equalsIgnoreCase(selectedNiveau.getLibelle())) {
+			listPers = persService.getListAllPersonne();
+		} else {
+			listPers = persService.getListAllPersonneByNiveau(selectedNiveau.getLibelle());
+		}
+	}
+
+	public Niveau getSelectedNiveau() {
+		return selectedNiveau;
+	}
+
+	public void setSelectedNiveau(Niveau selectedNiveau) {
+		this.selectedNiveau = selectedNiveau;
 	}
 
 	public void setInit(boolean init) {
