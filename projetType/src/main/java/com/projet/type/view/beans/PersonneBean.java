@@ -10,7 +10,7 @@ import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
-import org.apache.tomcat.util.codec.binary.StringUtils;
+import org.primefaces.model.LazyDataModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,8 +34,8 @@ public class PersonneBean implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -9118752400514828767L;
-	private static final Logger LOG = LoggerFactory
-			.getLogger(PersonneBean.class);
+
+	private static final Logger LOG = LoggerFactory.getLogger(PersonneBean.class);
 
 	private boolean init;
 
@@ -64,6 +64,8 @@ public class PersonneBean implements Serializable {
 
 	private Niveau selectedNiveau = new Niveau();
 
+	private LazyDataModel<Personne> lazyListPersonne;
+
 	@Autowired
 	IPersonneService persService;
 
@@ -80,6 +82,10 @@ public class PersonneBean implements Serializable {
 		if (null != listNiveau && listNiveau.isEmpty()) {
 			listNiveau = niveauService.findAll();
 		}
+
+		// pour travailler en mode lazy
+		// lazyListPersonne = new LazyPersonnelDataModel(persService);
+
 		return init;
 	}
 
@@ -97,8 +103,7 @@ public class PersonneBean implements Serializable {
 
 	private void redirect(String page) {
 		try {
-			FacesContext.getCurrentInstance().getExternalContext()
-					.redirect(page);
+			FacesContext.getCurrentInstance().getExternalContext().redirect(page);
 		} catch (IOException e) {
 			LOG.info("Erreur " + e.toString());
 		}
@@ -239,6 +244,14 @@ public class PersonneBean implements Serializable {
 
 	public void setOtherInfoPers(OtherInfoPersonne otherInfoPers) {
 		this.otherInfoPers = otherInfoPers;
+	}
+
+	public LazyDataModel<Personne> getLazyListPersonne() {
+		return lazyListPersonne;
+	}
+
+	public void setLazyListPersonne(LazyDataModel<Personne> lazyListPersonne) {
+		this.lazyListPersonne = lazyListPersonne;
 	}
 
 }

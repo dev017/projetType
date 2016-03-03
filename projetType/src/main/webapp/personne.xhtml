@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	template="/template/layout.xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets" template="/template/layout.xhtml">
 
 <h:head>
 	<link type="text/css" rel="stylesheet" href="themes/bootstrap/skin.css" />
@@ -15,8 +10,7 @@
 
 	<h:form id="f1">
 		<h:inputHidden value="#{gestPersBean.init}" />
-		<p:commandLink id="addPersonne" value="Ajouter"
-			action="#{gestPersBean.ajouter}" />
+		<p:commandLink id="addPersonne" value="Ajouter" action="#{gestPersBean.ajouter}" />
 
 
 	</h:form>
@@ -25,32 +19,25 @@
 
 			<p:selectOneMenu id="actions" value="#{gestPersBean.selectedAction}">
 				<p:ajax listener="#{gestPersBean.onActionChange}" update="personne" />
-				<f:selectItem itemLabel="Actions" itemValue=""
-					noSelectionOption="true" />
+				<f:selectItem itemLabel="Actions" itemValue="" noSelectionOption="true" />
 				<f:selectItems value="#{gestPersBean.actions}" />
 			</p:selectOneMenu>
-	<br/><br/>		
-	
+			<br />
+			<br />
+
+
+			<h:outputText value="Niveau :" />
+			<p:selectOneMenu id="niveau" value="#{gestPersBean.selectedNiveau.libelle}" converter="omnifaces.SelectItemsConverter">
+				<p:ajax listener="#{gestPersBean.onFilterChange}" update="personne" />
+				<f:selectItem itemLabel="Tous les niveaux" itemValue="" noSelectionOption="true" />
+				<f:selectItems value="#{gestPersBean.listNiveau}" />
+			</p:selectOneMenu>
 		
-		<h:outputText value="Niveau :" />
-				<p:selectOneMenu id="niveau" value="#{gestPersBean.selectedNiveau.libelle}"
-					converter="omnifaces.SelectItemsConverter">
-					<p:ajax listener="#{gestPersBean.onFilterChange}" update="personne" />
-					<f:selectItem itemLabel="Tous les niveaux" itemValue=""
-						noSelectionOption="true" />
-					<f:selectItems value="#{gestPersBean.listNiveau}" />
-				</p:selectOneMenu>
 		
-				
-			<br/><br/>											
-Liste des personnes : 
-  <p:dataTable id="personne" var="var" value="#{gestPersBean.listPers}"
-				rows="5" widgetVar="advTable" paginator="true"
-				paginatorAlwaysVisible="false" emptyMessage="Aucune personne trouvé"
-				rowKey="#{var.id}" paginatorPosition="top"
-				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-				rowsPerPageTemplate="5,10,15"
-				selection="#{gestPersBean.selectedPersonnes}">
+		Liste des personnes : 
+  <p:dataTable id="personne" var="var" value="#{gestPersBean.listPers}" rows="5" widgetVar="advTable" paginator="true" paginatorAlwaysVisible="false" emptyMessage="Aucune personne trouvé"
+				rowKey="#{var.id}" paginatorPosition="top" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				rowsPerPageTemplate="5,10,15" selection="#{gestPersBean.selectedPersonnes}">
 
 
 				<!-- 			<p:ajax event="rowSelectCheckbox" update="@this" process="@this" /> -->
@@ -61,57 +48,44 @@ Liste des personnes :
 
 				<f:facet name="header">
 					<h:panelGroup layout="block" styleClass="row">
-						<h:panelGroup layout="block"
-							styleClass="col-md-12 marginBottomAlone marginTopAlone  ">
+						<h:panelGroup layout="block" styleClass="col-md-12 marginBottomAlone marginTopAlone  ">
 
-							<p:commandButton styleClass="pull-right" id="toggler"
-								type="button" value="Colonnes" icon="ui-icon-calculator" />
+							<p:commandButton styleClass="pull-right" id="toggler" type="button" value="Colonnes" icon="ui-icon-calculator" />
 							<p:columnToggler datasource="personne" trigger="toggler" />
 						</h:panelGroup>
 					</h:panelGroup>
 				</f:facet>
 
-				<p:column selectionMode="multiple"
-					style="width:16px;text-align:center" />
+				<p:column selectionMode="multiple" style="width:16px;text-align:center" />
 
-				<p:column headerText="Id" sortBy="#{var.id}" filterBy="#{var.id}"
-					filterStyle="display:none">
+				<p:column headerText="Id" sortBy="#{var.id}" filterBy="#{var.id}" filterStyle="display:none">
 					<h:outputText value="#{var.id}" />
 				</p:column>
 
-				<p:column headerText="Nom" sortBy="#{var.nom}" filterBy="#{var.id}"
-					filterStyle="display:none">
+				<p:column headerText="Nom" sortBy="#{var.nom}" filterBy="#{var.id}" filterStyle="display:none">
 					<h:outputText value="#{var.nom}" />
 				</p:column>
 
-				<p:column headerText="Prénom" sortBy="#{var.prenom}"
-					filterBy="#{var.prenom}" filterStyle="display:none">
+				<p:column headerText="Prénom" sortBy="#{var.prenom}" filterBy="#{var.prenom}" filterStyle="display:none">
 					<h:outputText value="#{var.prenom}" />
 				</p:column>
 
-				<p:column headerText="Niveau" sortBy="#{var.niveau.libelle}"
-					filterBy="#{var.niveau.libelle}" filterStyle="display:none">
+				<p:column headerText="Niveau" sortBy="#{var.niveau.libelle}" filterBy="#{var.niveau.libelle}" filterStyle="display:none">
 					<h:outputText value="#{var.niveau.libelle}" />
 				</p:column>
 
 				<p:column style="width:32px;text-align: center">
-					<p:commandButton update=":f2:personneDetail"
-						oncomplete="PF('personneDialog').show()" icon="ui-icon-search"
-						title="View">
-						<f:setPropertyActionListener value="#{var}"
-							target="#{gestPersBean.selectedOnePersonne}" />
+					<p:commandButton update=":f2:personneDetail" oncomplete="PF('personneDialog').show()" icon="ui-icon-search" title="View">
+						<f:setPropertyActionListener value="#{var}" target="#{gestPersBean.selectedOnePersonne}" />
 					</p:commandButton>
 				</p:column>
 
 
 			</p:dataTable>
 
-			<p:dialog header="Personne Info" widgetVar="personneDialog"
-				modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+			<p:dialog header="Personne Info" widgetVar="personneDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
 				<p:outputPanel id="personneDetail" style="text-align:center;">
-					<p:panelGrid columns="2"
-						rendered="#{not empty gestPersBean.selectedOnePersonne}"
-						columnClasses="label,value">
+					<p:panelGrid columns="2" rendered="#{not empty gestPersBean.selectedOnePersonne}" columnClasses="label,value">
 
 						<h:outputText value="Id:" />
 						<h:outputText value="#{gestPersBean.selectedOnePersonne.id}" />
@@ -122,6 +96,25 @@ Liste des personnes :
 					</p:panelGrid>
 				</p:outputPanel>
 			</p:dialog>
+
+
+			<!-- tableau pour travailler en mode Lazy -->
+			<!-- 			<p:dataTable id="tabPersArchiv" value="#{gestPersBean.lazyListPersonne}" var="pers"  lazy="true" rows="5" -->
+			<!-- 				paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}" rowsPerPageTemplate="5,10,15" paginator="true" -->
+			<!-- 				widgetVar="tabPersArchiv" sortBy="#{pers.nom}"> -->
+
+			<!-- 				<p:column headerText="Id" sortBy="#{pers.id}" filterBy="#{pers.id}" style="text-align:center;" width="9%"> -->
+			<!-- 					<p:outputLabel value="#{pers.id}" /> -->
+			<!-- 				</p:column> -->
+
+			<!-- 					<p:column headerText="Nom" sortBy="#{pers.nom}" filterBy="#{pers.nom}" style="text-align:center;" width="9%"> -->
+			<!-- 					<p:outputLabel value="#{pers.nom}" /> -->
+			<!-- 				</p:column> -->
+
+			<!-- 		</p:dataTable> -->
+
+			<br />
+			<br />
 		</h:form>
 	</h:body>
 </f:view>
